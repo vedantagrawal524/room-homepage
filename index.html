@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -17,51 +17,74 @@
     />
 
     <link rel="stylesheet" href="/css/style.css" />
-    <script src="/js/main.js" defer></script>
+    <script src="/js/nav-menu.js" defer></script>
+    <script src="/js/slider.js" defer></script>
   </head>
 
-  <body class="font-spartan relative min-h-screen bg-gray-100 text-base">
-    <header class="absolute top-0 left-0 z-10 w-full px-8 py-10">
-      <nav class="flex w-full flex-row items-center">
-        <div class="hamburger-button w-fit justify-self-start">
+  <body
+    id="page"
+    class="font-spartan relative min-h-screen bg-gray-100 text-base"
+  >
+    <div
+      id="overlay"
+      class="absolute top-0 left-0 z-15 hidden h-full w-full bg-black/80"
+    ></div>
+    <header class="absolute top-0 left-0 z-30 w-full px-8 py-10">
+      <nav class="xs:gap-14 flex w-full flex-row items-center">
+        <div
+          id="hamburger-button"
+          class="xs:hidden z-30 w-fit justify-self-start transition-[animation] duration-300 ease-linear focus:opacity-60 active:animate-spin"
+        >
           <img
             src="/images/icons/icon-hamburger.svg"
             alt="Open Menu"
+            id="open-menu"
             class="h-auto w-5"
+          />
+          <img
+            src="/images/icons/icon-close.svg"
+            alt="Open Menu"
+            id="close-menu"
+            class="hidden h-auto w-5"
           />
         </div>
 
-        <a href="#" class="mx-auto w-fit">
+        <a
+          href="#"
+          class="xs:mx-0 xs:justify-self-start mx-auto w-fit hover:animate-pulse"
+        >
           <img src="/images/icons/logo.svg" alt="Logo" class="h-auto w-14" />
         </a>
 
-        <ul class="hidden">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#shop">Shop</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+        <div id="nav-menu" class="navs-menu-switch">
+          <ul
+            class="xs:text-white xs:font-[500] xs:m-0 xs:gap-6 mt-10 mr-6 flex flex-row gap-4 text-[1rem] font-[650] text-black lowercase"
+          >
+            <li>
+              <a href="#home" class="nav-links hover-underline">Home</a>
+            </li>
+            <li>
+              <a href="#shop" class="nav-links hover-underline">Shop</a>
+            </li>
+            <li>
+              <a href="#about" class="nav-links hover-underline">About</a>
+            </li>
+            <li>
+              <a href="#contact" class="nav-links hover-underline">Contact</a>
+            </li>
+          </ul>
+        </div>
       </nav>
     </header>
 
-    <!-- <section id="mobile-menu" class="hidden">
-      <div class="hamburger-button">
-        <img src="/images/icons/icon-close.svg" alt="Close Menu" />
-      </div>
-
-      <ul class="">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#shop">Shop</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </section> -->
-
-    <main class="">
-      <section class="showcase flex flex-col">
-        <section class="showcase-img relative w-full">
+    <main class="flex flex-col">
+      <section id="showcase" class="flex flex-col lg:flex-row">
+        <section
+          id="showcase-img"
+          class="relative w-full lg:h-auto lg:max-w-[65vw]"
+        >
           <div class="img-list w-full">
-            <picture class="w-full">
+            <picture class="slides w-full">
               <source
                 media="(min-width: 425px)"
                 srcset="/images/desktop/desktop-image-hero-1.jpg"
@@ -69,71 +92,86 @@
               <img
                 src="/images/mobile/mobile-image-hero-1.jpg"
                 alt="Showcase Image"
-                class="h-auto w-full"
+                class="h-auto w-full lg:h-full lg:w-full"
               />
             </picture>
 
-            <picture class="hidden">
+            <picture class="slides hidden w-full">
               <source
                 media="(min-width: 425px)"
                 srcset="/images/desktop/desktop-image-hero-2.jpg"
               />
-              <img src="/images/mobile/mobile-image-hero-2.jpg" alt="" />
+              <img
+                src="/images/mobile/mobile-image-hero-2.jpg"
+                alt="Showcase Image"
+                class="h-auto w-full lg:h-full lg:w-full"
+              />
             </picture>
 
-            <picture class="hidden">
+            <picture class="slides hidden w-full">
               <source
                 media="(min-width: 425px)"
                 srcset="/images/desktop/desktop-image-hero-3.jpg"
               />
-              <img src="/images/mobile/mobile-image-hero-3.jpg" alt="" />
+              <img
+                src="/images/mobile/mobile-image-hero-3.jpg"
+                alt="Showcase Image"
+                class="h-auto w-full lg:h-full lg:w-full"
+              />
             </picture>
           </div>
 
           <div
-            class="showcase-controls absolute right-0 bottom-0 z-10 bg-black"
+            class="showcase-controls absolute right-0 bottom-0 z-10 bg-black lg:right-[-6.66rem]"
           >
             <button
-              class="xs:p-5 cursor-pointer bg-black px-5 py-4 hover:bg-gray-500"
+              class="xxs:p-5 cursor-pointer bg-black px-5 py-4 hover:bg-gray-500"
               id="prev-img"
             >
               <img
                 src="/images/icons/icon-angle-left.svg"
                 alt="Prev Image"
-                class="xs:w-[0.7rem] h-auto w-[0.6rem]"
+                class="xxs:w-[0.7rem] h-auto w-[0.6rem]"
               />
             </button>
 
             <button
-              class="xs:p-5 cursor-pointer bg-black px-5 py-4 hover:bg-gray-500"
+              class="xxs:p-5 cursor-pointer bg-black px-5 py-4 hover:bg-gray-500"
               id="next-img"
             >
               <img
                 src="/images/icons/icon-angle-right.svg"
                 alt="Next Image"
-                class="xs:w-[0.7rem] h-auto w-[0.6rem]"
+                class="xxs:w-[0.7rem] h-auto w-[0.6rem]"
               />
             </button>
           </div>
         </section>
 
-        <section class="showcase-text xs:p-16 px-8 py-12">
+        <section
+          id="showcase-text"
+          class="xxs:p-16 w-full px-8 py-12 lg:mx-0 lg:my-auto lg:max-w-[35vw] lg:items-center lg:self-center lg:px-16 lg:py-0 xl:px-24"
+        >
           <div class="flex flex-col gap-3">
             <h1
-              class="text-title xs:text-[2.2rem] text-[2.1rem] leading-8 font-[600] tracking-tighter text-black"
+              class="text-title xxs:text-[2.2rem] text-[2.1rem] leading-8 font-[550] tracking-tighter text-black xl:text-[2.5rem] xl:leading-9"
             >
               Discover innovative ways to decorate
             </h1>
-            <p class="text-info text-[1rem] leading-6 font-[450] text-gray-400">
+            <p
+              class="text-info text-[1rem] leading-6 font-[450] text-gray-400 lg:leading-4"
+            >
               We provide unmatched quality, comfort, and style for property
               owners across the country. Our experts combine form and function
               in bringing your vision to life. Create a room in your own style
               with our collection and make your property a reflection of you and
               what you love.
             </p>
-            <a class="mt-2 flex flex-row items-center gap-4" href="#"
+            <a
+              class="flex flex-row items-center gap-4 hover:animate-bounce hover:opacity-40"
+              href="#"
               ><p
-                class="shop-button xs:text-[0.9em] self-center text-[0.85rem] font-[550] tracking-[0.7rem] text-black uppercase"
+                class="shop-button xxs:text-[0.9em] self-center text-[0.85rem] font-[550] tracking-[0.7rem] text-black uppercase"
               >
                 Shop now
               </p>
@@ -144,54 +182,91 @@
             /></a>
           </div>
 
-          <div class="hidden">
-            <h1 class="text-title">We are available all across the globe</h1>
-            <p class="text-info">
+          <div class="flex hidden flex-col gap-3">
+            <h1
+              class="text-title xxs:text-[2.2rem] text-[2.1rem] leading-8 font-[550] tracking-tighter text-black xl:text-[2.5rem] xl:leading-9"
+            >
+              We are available all across the globe
+            </h1>
+            <p
+              class="text-info text-[1rem] leading-6 font-[450] text-gray-400 lg:leading-4"
+            >
               With stores all over the world, it's easy for you to find
               furniture for your home or place of business. Locally, we’re in
               most major cities throughout the country. Find the branch nearest
               you using our store locator. Any questions? Don't hesitate to
               contact us today.
             </p>
-            <a href="#"
-              ><p>Shop now</p>
-              <img src="/images/icons/icon-arrow.svg" alt="Arrow"
+            <a
+              class="flex flex-row items-center gap-4 hover:animate-bounce hover:opacity-40"
+              href="#"
+              ><p
+                class="shop-button xxs:text-[0.9em] self-center text-[0.85rem] font-[550] tracking-[0.7rem] text-black uppercase"
+              >
+                Shop now
+              </p>
+              <img
+                src="/images/icons/icon-arrow.svg"
+                alt="Arrow"
+                class="h-auto w-9 self-center"
             /></a>
           </div>
 
-          <div class="hidden">
-            <h1 class="text-title">Manufactured with the best materials</h1>
-            <p class="text-info">
+          <div class="flex hidden flex-col gap-3">
+            <h1
+              class="text-title xxs:text-[2.2rem] text-[2.1rem] leading-8 font-[550] tracking-tighter text-black xl:text-[2.5rem] xl:leading-9"
+            >
+              Manufactured with the best materials
+            </h1>
+            <p
+              class="text-info text-[1rem] leading-6 font-[450] text-gray-400 lg:leading-4"
+            >
               Our modern furniture store provide a high level of quality. Our
               company has invested in advanced technology to ensure that every
               product is made as perfect and as consistent as possible. With
               three decades of experience in this industry, we understand what
               customers want for their home and office.
             </p>
-            <a href="#"
-              ><p>Shop now</p>
-              <img src="/images/icons/icon-arrow.svg" alt="Arrow"
+            <a
+              class="flex flex-row items-center gap-4 hover:animate-bounce hover:opacity-40"
+              href="#"
+              ><p
+                class="shop-button xxs:text-[0.9em] self-center text-[0.85rem] font-[550] tracking-[0.7rem] text-black uppercase"
+              >
+                Shop now
+              </p>
+              <img
+                src="/images/icons/icon-arrow.svg"
+                alt="Arrow"
+                class="h-auto w-9 self-center"
             /></a>
           </div>
         </section>
       </section>
 
-      <section id="about" class="flex w-full flex-col">
-        <picture class="w-full">
+      <section
+        id="about"
+        class="w-full items-center lg:grid lg:grid-cols-[1fr_1.3fr_1fr]"
+      >
+        <picture class="w-full lg:h-full">
           <img
             src="/images/image-about-dark.jpg"
             alt="Dark Furniture"
-            class="h-auto w-full"
+            class="w-full lg:h-full"
           />
         </picture>
 
-        <div class="xs:p-16 flex flex-col gap-3 px-8 py-12">
+        <div
+          class="xxs:p-16 flex w-full max-w-[45rem] flex-col gap-3 px-8 py-12 lg:mx-0 lg:my-auto lg:px-10 lg:py-6 xl:px-14"
+        >
           <h2
-            class="xs:text-[0.9rem] about-title text-[0.85rem] font-[800] tracking-[0.3rem] text-black uppercase"
+            class="xxs:text-[0.9rem] about-title text-[0.85rem] font-[700] tracking-[0.3rem] text-black uppercase xl:text-[1rem]"
           >
             About our furniture
           </h2>
-          <p class="about-info text-[1rem] leading-6 font-[450] text-gray-400">
+          <p
+            class="about-info text-[1rem] leading-6 font-[450] text-gray-400 lg:leading-4"
+          >
             Our multifunctional collection blends design and function to suit
             your individual taste. Make each room unique, or pick a cohesive
             theme that best express your interests and what inspires you. Find
@@ -201,11 +276,11 @@
           </p>
         </div>
 
-        <picture class="w-full">
+        <picture class="w-full lg:h-full">
           <img
             src="/images/image-about-light.jpg"
             alt="Light Furniture"
-            class="h-auto w-full"
+            class="w-full lg:h-full"
           />
         </picture>
       </section>

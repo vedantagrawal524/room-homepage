@@ -1,8 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap");
 @import "tailwindcss";
 
+* {
+  transition: all 0.3s linear;
+}
+
 @theme {
-  --breakpoint-xxs: 350px;
-  --breakpoint-xs: 425px;
+  --breakpoint-xxs: 425px;
+  --breakpoint-xs: 580px;
   --font-spartan: "League Spartan", sans-serif;
+}
+
+@layer components {
+  .hover-underline {
+    @apply relative transition-[width] content-none after:absolute after:right-0 after:bottom-[-8px] after:left-[50%] after:mx-0 after:my-auto after:block after:h-[2px] after:w-0 after:origin-center after:translate-x-[-50%] after:rounded-[5px] after:bg-white after:duration-200 after:ease-in-out hover:opacity-60 hover:after:w-[70%];
+  }
+
+  @media screen and (width<580px) {
+    .navs-menu-switch {
+      @apply absolute top-0 right-0 z-20 flex h-[7rem] w-screen translate-y-[-100%] transform flex-row justify-end bg-white transition-transform duration-300 ease-in-out;
+    }
+  }
 }

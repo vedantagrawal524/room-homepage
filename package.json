@@ -1,0 +1,20 @@
+{
+  "name": "room-homepage",
+  "version": "1.0.0",
+  "description": "- Dark Gray: hsl(0, 0%, 63%) - Very Dark Gray: hsl(0, 0%, 27%)",
+  "main": "index.js",
+  "scripts": {
+    "tailwind": "npx @tailwindcss/cli -i ./src/input.css -o ./css/style.css --watch",
+    "prettier": "npx prettier --write **/*.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.4",
+    "tailwindcss": "^4.1.4"
+  },
+  "devDependencies": {
+    "prettier": "^3.5.3",
+    "prettier-plugin-tailwindcss": "^0.6.11"
+  }
+}

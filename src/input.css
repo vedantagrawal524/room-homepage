@@ -2,5 +2,7 @@
 @import "tailwindcss";
 
 @theme {
+  --breakpoint-xxs: 350px;
+  --breakpoint-xs: 425px;
   --font-spartan: "League Spartan", sans-serif;
 }
